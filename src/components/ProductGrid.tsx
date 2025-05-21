@@ -26,7 +26,7 @@ export const products = [
     id: "p3",
     title: "Bluetooth Speaker",
     description: "Portable Bluetooth speaker with excellent sound quality and battery life.",
-    image: "https://example.com/images/speaker.jpg",
+    image: "/bluetoothspeaker.png",
     price: 45.00,
     quantity: 35,
     category: "Home"
@@ -35,7 +35,7 @@ export const products = [
     id: "p4",
     title: "Gaming Mouse",
     description: "Ergonomic gaming mouse with customizable DPI and RGB lighting.",
-    image: "https://example.com/images/gaming-mouse.jpg",
+    image: "/mouse.png",
     price: 39.99,
     quantity: 50,
     category: "Electronics"
@@ -44,7 +44,7 @@ export const products = [
     id: "p5",
     title: "Mechanical Keyboard",
     description: "Compact mechanical keyboard with tactile switches and backlight.",
-    image: "https://example.com/images/keyboard.jpg",
+    image: "/keyboard.png",
     price: 74.99,
     quantity: 25,
     category: "Accessories"

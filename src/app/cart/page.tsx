@@ -6,10 +6,7 @@ import { products } from "@/components/ProductGrid";
 
 export default function Cart() {
   const cart = useSelector((state: RootState) => state.store.cart);
-
   const cartProducts = products.filter(product => cart[product.id] !== undefined);
-
-  console.log(cart);
 
   return (
     <div className="p-4">

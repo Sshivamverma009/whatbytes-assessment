@@ -18,7 +18,6 @@ export default function Footer() {
             <div>
                 <h1 className="font-semibold">Follow Us</h1>
                 <div>
-                    {/* <FontAwesomeIcon icon="fa-brands fa-facebook" style={{color: "#74C0FC",}} /> */}
                 </div>
             </div>
         </div>

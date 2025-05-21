@@ -2,16 +2,14 @@
 
 import { products } from "@/components/ProductGrid";
 import { use } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addItem } from "@/lib/features/storeSlice";
-import { RootState } from "@/lib/store";
 import StoreProvider from "@/app/StoreProvider";
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
     const product = products.find((product) => product.id === id);
     const dispatch = useDispatch();
-    const cartItems = useSelector((state: RootState) => state.store.cart);
 
     if (!product) return <div>Product not found.</div>;
 
