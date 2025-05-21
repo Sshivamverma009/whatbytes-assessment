@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addItem, removeItem } from "@/lib/features/storeSlice";
 import { RootState } from "@/lib/store";
 import Image from "next/image";
+import { useEffect } from "react";
 
 interface ItemPayload {
     id: string;
@@ -19,7 +20,9 @@ export default function Card({ product }: { product: ItemPayload }) {
     const cart = useSelector((state: RootState) => state.store.cart);
     const isInCart = !!cart[product.id];
 
-    localStorage.setItem('cart',JSON.stringify(cart));
+    useEffect(() => {
+        localStorage.setItem('cart',JSON.stringify(cart));
+    },[cart])
 
     return (
         <div className="border border-gray-200 flex flex-col align-middle rounded-lg p-4 font-500 bg-white">

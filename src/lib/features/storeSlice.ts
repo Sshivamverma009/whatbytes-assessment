@@ -5,6 +5,17 @@ interface ItemPayload {
   [id : string] : number;
 }
 
+const loadCart = (): ItemPayload => {
+  if (typeof window === "undefined") return {};
+  try {
+    const storedCart = localStorage.getItem("cart");
+    return storedCart ? JSON.parse(storedCart) : {};
+  } catch (err) {
+    console.error("Failed to load cart from localStorage", err);
+    return {};
+  }
+};
+
 export interface Store {
   cart: ItemPayload;
   category: string;
@@ -12,7 +23,7 @@ export interface Store {
 }
 
 const initialState: Store = {
-  cart: {},
+  cart: loadCart(),
   category: "All",
   price: 1000,
 };
