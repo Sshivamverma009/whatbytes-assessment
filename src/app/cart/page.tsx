@@ -11,7 +11,7 @@ export default function Cart() {
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">Cart</h2>
-      {products.length === 0 ? (
+      {cartProducts.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
