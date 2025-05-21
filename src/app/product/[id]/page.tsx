@@ -51,9 +51,8 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
               ? dispatch(removeItem(product.id))
               : dispatch(addItem(product.id))
           }
-          className={`${
-            isInCart ? "bg-red-600" : "bg-blue-800"
-          } max-w-full mt-3 self-center text-white px-4 py-2 rounded text-sm`}
+          className={`${isInCart ? "bg-red-600" : "bg-blue-800"
+            } max-w-full mt-3 self-center text-white px-4 py-2 rounded text-sm`}
         >
           {isInCart ? "Added" : "Add to Cart"}
         </button>

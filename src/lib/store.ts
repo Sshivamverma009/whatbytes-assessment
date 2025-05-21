@@ -15,10 +15,10 @@ const loadCart = () => {
 
 export const makeStore = () => {
   const cartState = {
-    store : {
-      cart : typeof window !== "undefined" ? loadCart() : {},
-      category : "All",
-      price : 1000
+    store: {
+      cart: typeof window !== "undefined" ? loadCart() || {} : {},
+      category: "All",
+      price: 1000
     }
   }
   return configureStore({
