@@ -29,6 +29,8 @@ export default function Card({ product }: { product: ItemPayload }) {
             <div className="flex justify-center mb-3">
                 <Link href={`/product/${product.id}`} className="cursor-pointer">
                     <Image
+                        width={220}
+                        height={220}
                         src={product.image}
                         alt={product.description}
                         className="w-[200px] h-[200px] object-cover"
