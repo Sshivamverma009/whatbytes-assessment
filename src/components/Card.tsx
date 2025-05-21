@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem, removeItem } from "@/lib/features/storeSlice";
 import { RootState } from "@/lib/store";
+import Image from "next/image";
 
 interface ItemPayload {
     id: string;
@@ -22,7 +23,7 @@ export default function Card({ product }: { product: ItemPayload }) {
         <div className="border border-gray-200 flex flex-col align-middle rounded-lg p-4 font-500 bg-white">
             <div className="flex justify-center mb-3">
                 <Link href={`/product/${product.id}`} className="cursor-pointer">
-                    <img
+                    <Image
                         src={product.image}
                         alt={product.description}
                         className="w-[200px] h-[200px] object-cover"
