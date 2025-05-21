@@ -16,7 +16,7 @@ const loadCart = () => {
 export const makeStore = () => {
   const cartState = {
     store : {
-      cart : loadCart() || {},
+      cart : typeof window !== "undefined" ? loadCart() : {},
       category : "All",
       price : 1000
     }

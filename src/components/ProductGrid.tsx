@@ -1,7 +1,8 @@
 "use client"
-import { useSelector } from "react-redux";
+
+import { useSelector } from "react-redux"
 import Card from "./Card"
-import type { RootState } from "@/lib/store";
+import type { RootState } from "@/lib/store"
 
 export const products = [
   {
@@ -49,27 +50,24 @@ export const products = [
     quantity: 25,
     category: "Accessories"
   }
-];
-
+]
 
 export default function ProductGrid() {
   const category = useSelector((state: RootState) => state.store.category)
-  const price = useSelector((state : RootState) => state.store.price)
+  const price = useSelector((state: RootState) => state.store.price)
+
   return (
     <div className="">
       <h1 className="font-bold text-2xl mb-3">Product Listing</h1>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {
-          products
-            .filter(product => category === "All" || product.category === category)
-            .filter(product => product.price <= price)
-            .map(product => (
-              <li key={product.id}>
-                <Card product={product} />
-              </li>
-            ))
-
-        }
+        {products
+          .filter(product => category === "All" || product.category === category)
+          .filter(product => product.price <= price)
+          .map(product => (
+            <li key={product.id}>
+              <Card product={product} />
+            </li>
+          ))}
       </ul>
     </div>
   )

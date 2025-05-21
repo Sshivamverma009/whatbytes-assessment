@@ -2,16 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface ItemPayload {
-  [id : string] : number;
+  [id: string]: number;
 }
 
 const loadCart = (): ItemPayload => {
-  if (typeof window === "undefined") return {};
   try {
-    const storedCart = localStorage.getItem("cart");
+    let storedCart;
+    if (typeof window !== "undefined") {
+      storedCart = localStorage.getItem("cart");
+    }
     return storedCart ? JSON.parse(storedCart) : {};
-  } catch (err) {
-    console.error("Failed to load cart from localStorage", err);
+  } catch (error) {
+    console.log("Failed to load cart from localStorage:", error);
     return {};
   }
 };
@@ -23,7 +25,7 @@ export interface Store {
 }
 
 const initialState: Store = {
-  cart: loadCart(),
+  cart: loadCart()!,
   category: "All",
   price: 1000,
 };
@@ -34,13 +36,13 @@ export const storeSlice = createSlice({
   reducers: {
     addItem: (state, action: PayloadAction<string>) => {
       const id = action.payload;
-      if(state.cart[id] == undefined){
+      if (state.cart[id] == undefined) {
         state.cart[id] = 1;
       }
     },
-    removeItem : (state, action: PayloadAction<string>) => {
+    removeItem: (state, action: PayloadAction<string>) => {
       const id = action.payload;
-      if(state.cart[id]){
+      if (state.cart[id]) {
         delete state.cart[id];
       }
     },
@@ -62,15 +64,21 @@ export const storeSlice = createSlice({
     },
     setCategory: (state, action: PayloadAction<string>) => {
       state.category = action.payload;
-      console.log("set category is called")
+      console.log("set category is called");
     },
     setPrice: (state, action: PayloadAction<number>) => {
       state.price = action.payload;
-      console.log("price is set")
+      console.log("price is set");
     },
   },
 });
 
-export const { addItem, removeItem, increment, decrement, setCategory, setPrice } =
-  storeSlice.actions;
+export const {
+  addItem,
+  removeItem,
+  increment,
+  decrement,
+  setCategory,
+  setPrice,
+} = storeSlice.actions;
 export default storeSlice.reducer;
