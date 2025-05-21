@@ -19,6 +19,8 @@ export default function Card({ product }: { product: ItemPayload }) {
     const cart = useSelector((state: RootState) => state.store.cart);
     const isInCart = !!cart[product.id];
 
+    localStorage.setItem('cart',JSON.stringify(cart));
+
     return (
         <div className="border border-gray-200 flex flex-col align-middle rounded-lg p-4 font-500 bg-white">
             <div className="flex justify-center mb-3">

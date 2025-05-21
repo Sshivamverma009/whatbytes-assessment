@@ -55,8 +55,6 @@ export const products = [
 export default function ProductGrid() {
   const category = useSelector((state: RootState) => state.store.category)
   const price = useSelector((state : RootState) => state.store.price)
-  const cart = useSelector((state : RootState) => state.store.cart);
-  console.log(cart);
   return (
     <div className="">
       <h1 className="font-bold text-2xl mb-3">Product Listing</h1>
